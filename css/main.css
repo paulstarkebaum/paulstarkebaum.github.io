@@ -132,6 +132,7 @@ h2 ~ p {
   background-color: #000;
   padding: 10vh 0 15vh;
   text-align: center;
+  position: relative;
 }
 .footer-logo img {
   width: 50px;
@@ -140,6 +141,10 @@ h2 ~ p {
   color: #fff;
   padding-top: 1.5em;
   text-transform: uppercase;
+}
+.footer .social-list {
+  position: absolute;
+  z-index: 50;
 }
 .footer h3 span {
   color: #aaa;
