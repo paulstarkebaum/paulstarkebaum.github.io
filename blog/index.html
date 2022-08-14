@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<div class="page blog-index">
+  <h1>Bloggie Blog</h1>
+  <div class="col-two blog-cols">
+    <div class="col col-aside blog-recent">
+    {% include recent-posts.html %}
+    </div>
+    <div class="col col-content blog-previews">
+      {% for post in site.posts %}
+        <div class="blog-posts">
+          <header class="post-header">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <div class="post-byline">
+              <img src="{{ post.gravatar }}">
+              <a href="{{ post.authorTwitter }}" class="social-link">Tw</a>
+              by: {{ post.author }}
+              <span> - {{ post.date | date: '%B %d, %Y' }}</span>
+            </div>
+          </header>
+        <div class="posts-image" style="background-image:url({{ post.postHero }})">
+        </div>
+          {{ post.excerpt }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- 
+Notes
+
+This is stub content of the /blog/index.html
+stub refers to putting in plumbing behind in the studs, letting the stubs stick out, before putting up the walls and fixtures. It's a functional base, to be built upon.
+https://stackoverflow.com/questions/9777822/what-does-to-stub-mean-in-programming
+
+The the top we have frontamtter with layout:default
+meaning the below will the be the  content 
+inserted into the content-container div class, with the head, header, footer already set up.
+
+We have overall wrappers with page and blog-index classes
+h1 page title
+then a div call called col-two and blog-cols
+which holds the rest of the page which is in two columns.
+the abbreviated posts are on one, and then just the post titles are on the other side. 
+this is divided with one side as class col col-aside blog recent 
+which has recent posts(just titles) and a ul with items in a 
+liquid for loop, that calls site.posts.
+This calls into the _site directory and finds the posts from their filenames of the form YYYY-MM-DD-post-title.md.
+The posts are in the _posts directory, but they load automaticaly into the _site/ directory. So site.posts retrieves posts from both the _site directory and the _posts directory. It looks in _site, and inside there the contents of the _posts are loaded by year, month, day, title. 
+This is a bit confusing because you might expect it to say for post in posts, rather than for post in site.posts.
+
+It will order them as newest first.
+
+Then it will call page variables from the frontmatter of that page.
+The other side is for post previews under the class
+col col-content blog previews.
+
+To navigate to this page we update _include/nav-links.html
+
+the .col-two will display flex
+with col aside set to a defined size flex: 0 0 20em
+and the col content flex: 1 which will adjust the size.
+the order property can change the order of the html elements.
+  -->
