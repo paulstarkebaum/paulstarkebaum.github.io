@@ -524,7 +524,8 @@ h4 {
 
 /*GALLERY STYLES*/
 .gallery-thumbs {
-  flex: 1 1 25vw;
+/*  flex: 1 1 25vw;*/
+  flex: 0 1 15em;
   /*height: 80vh;*/
   overflow: scroll;
 }
