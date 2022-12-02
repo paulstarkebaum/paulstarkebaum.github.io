@@ -399,7 +399,7 @@ h4 {
   border-left: 1px solid rgba(0, 0, 0, .1);
 }
 .col-three .col-nav {
-  /*flex: 0 0 auto;*/
+  flex: 0 1 15em;
 }
 .col-three .col-content {
   flex: 1;
